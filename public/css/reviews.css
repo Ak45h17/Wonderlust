@@ -1,0 +1,24 @@
+.rating-stars {
+  direction: rtl; /* RTL so first star (5) appears leftmost */
+  display: inline-flex;
+  justify-content: start;
+  gap: 4px;
+}
+
+.rating-stars input[type="radio"] {
+  display: none;
+}
+
+.rating-stars label {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+/* When checked or hovered */
+.rating-stars input[type="radio"]:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+  color: gold;
+}
