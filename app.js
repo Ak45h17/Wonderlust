@@ -102,6 +102,7 @@ app.use((req, res, next) => {
 
 
 
+
 app.use("/listings", listingRoutes);
 app.use("/listings/:id/reviews", reviewRoutes);
 app.use("/",userRoutes);
@@ -115,7 +116,9 @@ app.use("/",userRoutes);
 //     res.send("Hi, I am root.");
 // });
 
-
+app.get("/", (req, res) => {
+  res.redirect("/listings"); 
+});
 
 //handle error(midleware)
 app.use((err, req, res, next) => {
