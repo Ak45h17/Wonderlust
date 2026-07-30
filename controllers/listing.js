@@ -32,12 +32,14 @@ module.exports.createListing = async (req, res) => {
 
   // 3️⃣ Create new listing
   const newListing = new Listing(req.body.listing);
-  newListing.owner = req.user._id;
+newListing.owner = req.user._id;
 
-  newListing.image = {
+console.log(req.file);
+
+newListing.image = {
     url: req.file.path,
     filename: req.file.filename
-  };
+};
 
   // ✅ Set GeoJSON geometry
   newListing.geometry = geoFeature.geometry; // { type: 'Point', coordinates: [...] }
